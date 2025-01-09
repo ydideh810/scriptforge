@@ -105,7 +105,9 @@ export const useStore = create<ScriptForgeState>()(
             ? state.conversations.map(conv => 
                 conv.id === updatedConversation.id ? updatedConversation : conv
               )
-            : state.conversations.filter(conv => conv.id !== state.currentConversation.id)
+            : state.conversations.filter(conv => 
+                state.currentConversation ? conv.id !== state.currentConversation.id : true
+              )
         };
       }),
     }),
