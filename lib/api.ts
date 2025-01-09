@@ -38,14 +38,22 @@ export async function generateResponse(
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), TIMEOUT);
 
+      const headers: HeadersInit = {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      };
+
+      if (SITE_URL) {
+        headers['HTTP-Referer'] = SITE_URL;
+      }
+
+      if (SITE_NAME) {
+        headers['X-Title'] = SITE_NAME;
+      }
+
       const response = await fetch(API_URL, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${API_KEY}`,
-          'Content-Type': 'application/json',
-          'HTTP-Referer': SITE_URL,
-          'X-Title': SITE_NAME
-        },
+        headers,
         body: JSON.stringify({
           model: 'gryphe/mythomax-l2-13b:free',
           messages: [{ role: 'user', content: prompt }],
