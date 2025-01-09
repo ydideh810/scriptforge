@@ -16,7 +16,7 @@ const shareTechMono = Share_Tech_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Script_Forge',
+  title: 'LABOR_TRON',
   description: 'Next-generation AI scripting platform',
   themeColor: '#0A0A0F',
 };
