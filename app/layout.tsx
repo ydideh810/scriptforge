@@ -18,6 +18,15 @@ const shareTechMono = Share_Tech_Mono({
 export const metadata: Metadata = {
   title: 'LABOR_TRON',
   description: 'Next-generation AI scripting platform',
+  icons: {
+    icon: '/labor.ico',
+    shortcut: '/labor.ico',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
+    },
+  },
   themeColor: '#0A0A0F',
 };
 
